@@ -1,0 +1,14 @@
+@use '../abstracts/' as *;
+
+.btn {
+  border: none;
+  padding: 0.625em 2.1875em;
+  border-radius: 1.25em;
+  color: $very-light-gray;
+  background: linear-gradient(90deg, $lime-green, $bright-cyan);
+  transition: opacity 0.10s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}

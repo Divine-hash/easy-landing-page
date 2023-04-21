@@ -1,0 +1,109 @@
+@use '../abstracts/' as *;
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.625rem 1.25rem 0.9375rem; // 10px 20px 15px;
+
+  &-menu {
+    display: none;
+    list-style-type: none;
+    color: $dark-blue;
+    text-align: center;
+    padding: 0.9375rem 0;
+    border-radius: 5px;
+
+    @include breakpoint-up(large) {
+      padding: 0;
+      display: flex;
+      gap: 20px;
+
+      .nav-item {
+        padding: 0;
+        position: relative;
+      }
+
+      .nav-item::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient($lime-green, $bright-cyan);
+        position: absolute;
+        bottom: -100%;
+        visibility: hidden;
+        transition: visibility 0.1s;
+      }
+
+      .nav-item:hover::after {
+        visibility: visible;
+      }
+    }
+
+    li {
+      padding: 0.9875rem 0;
+    }
+  }
+
+  &-cta {
+    display: none;
+
+    @include breakpoint-up(large) {
+      display: block;
+    }
+  }
+
+  &-hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    @include breakpoint-up(large) {
+      display: none;
+    }
+
+    span {
+      flex: none;
+      display: block;
+      width: 25px;
+      height: 2px;
+      background: $dark-blue;
+      transition: transform 0.5s, opacity 0.5s;
+    }
+  }
+}
+
+// Nav Active States
+.nav.active {
+  .nav-hamburger {
+    span:nth-child(2) {
+      opacity: 0;
+    }
+
+    span:nth-child(1) {
+      transform: translateY(5px) rotate(45deg);
+    }
+
+    span:nth-child(3) {
+      transform: translateY(-5px) rotate(-45deg);
+    }
+  }
+
+  .overlay {
+    position: fixed;
+    top: 3.125rem;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)
+    );
+  }
+
+  .nav-menu {
+    display: block;
+    background: $white;
+    margin: 1.25rem;
+  }
+}

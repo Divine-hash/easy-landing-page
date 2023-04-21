@@ -1,5 +1,3 @@
-$background: slateblue;
-
-body {
-  background-image: url('../images/image-restaurant.jpg');
-}
+@use './base' as *;
+@use './layout' as *;
+@use './components/' as *;
