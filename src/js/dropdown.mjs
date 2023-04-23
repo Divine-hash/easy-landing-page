@@ -1,19 +1,13 @@
-export default class Dropdown {
-  constructor() {
-    this.hamburger = document.querySelector('.nav-hamburger');
+class Dropdown {
+  constructor(elem) {
+    this.nav = document.querySelector('.nav');
+    this.showMenu = this.showMenu.bind(this);
+    elem.addEventListener('click', this.showMenu);
   }
 
-  onClick() {
-    this.hamburger.addEventListener('click', this.#changeHamburgerState);
-  }
-
-  #changeHamburgerState() {
-    const nav = this.closest('.nav');
-    if (!nav) return;
-    nav.classList.toggle('active');
-
-    if (nav.classList.contains('active')) {
-      document.body.style.overflow = 'hidden';
-    }
+  showMenu(event) {
+    this.nav.classList.toggle('active');
   }
 }
+
+export default Dropdown;
