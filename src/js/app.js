@@ -1,23 +1,27 @@
 import '../css/style.scss';
 import '../images/image-restaurant.jpg';
-import Dropdown from './dropdown.mjs';
+import {bindHamburgerEvent} from './navigation.mjs';
+import {fadeInEvent} from './fade_in.mjs';
 require.context('../images', false, /\.(png|svg|jpg)$/);
 
 const components = [
   {
-    class: Dropdown,
-    selector: '.nav-hamburger'
+    func: bindHamburgerEvent,
+    selector: '[data-id="nav-id"]'
+  },
+  {
+    func: fadeInEvent,
+    selector: '[data-id="reasons-id"]'
   }
 ];
 
 function init() {
-  components.forEach(component => {
-    if (document.querySelector(component.selector)) {
-      document.querySelectorAll(component.selector).forEach(element => {
-        new component.class(element);
-      });
-    }
-  });
+  const assign = component => {
+    const elem = document.querySelector(component.selector);
+    if (!elem) return;
+    component.func(elem);
+  }
+  components.forEach(assign);
 }
 
 document.addEventListener('DOMContentLoaded', init);

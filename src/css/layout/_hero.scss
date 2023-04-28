@@ -1,0 +1,69 @@
+@use '../abstracts/' as *;
+
+.hero {
+  background-color: $very-light-gray;
+  background-image: url('../images/bg-intro-mobile.svg');
+  background-repeat: no-repeat;
+  background-position: top -21% right;
+  background-size: 100vw auto;
+
+  &-img {
+    padding: 0 0.9375rem;
+    transform: translateY(-30%);
+  }
+
+  &-text {
+    padding: 0.9375rem;
+    text-align: center;
+    transform: translateY(-30%);
+
+    h1{
+      padding-bottom: 1.25rem;
+    }
+
+    p {
+      padding-bottom: 2.5rem;
+    }
+  }
+
+  @include breakpoint-up(medium) {
+    .hero-img {
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  @include breakpoint-up(large) {
+    background-image: url('../images/bg-intro-desktop.svg');
+    background-position: top -180px right -50%;
+    background-size: 65vw auto;
+    padding: 9.375rem 0;
+    position: relative;
+
+    .hero-img {
+      transform: translateY(0);
+      order: 1;
+      position: absolute;
+      right: -9.375rem;
+      top: -7.5rem;
+
+      img {
+        width: 43.75rem;
+        height: auto;
+      }
+    }
+
+    .hero-text {
+      transform: translateY(0);
+      text-align: left;
+      padding-right: 155px;
+    }
+
+    .hero-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+  }
+}
