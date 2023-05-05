@@ -52,7 +52,7 @@ function uploadContent(card, data) {
   };
 
   const cardData = data.find(obj => obj.id == card.id);
-  elem.cardImg.innerHTML = `<img src="${cardData.img}">`;
+  elem.cardImg.innerHTML = `<a href="#"><img src="${cardData.img}"></a>`;
   elem.cardAuthor.textContent = cardData.author;
   elem.cardHeading.textContent = cardData.heading;
   elem.cardParagraph.textContent = cardData.paragraph;
