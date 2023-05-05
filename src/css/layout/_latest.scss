@@ -1,0 +1,31 @@
+@use '../abstracts/' as *;
+
+.latest-articles {
+  padding: 6.25rem 0 5rem;
+  background-color: $very-light-gray;
+
+  .card-wrapper, h2 {
+    padding: 0 0.9375rem;
+  }
+
+  h2 {
+    margin-bottom: 1.25rem;
+    text-align: center;
+    text-transform: capitalize;
+    padding: 0.9375rem;
+  }
+
+  .card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: 1fr;
+    column-gap: 1.25rem;
+    row-gap: 2.5rem;
+  }
+
+  @include breakpoint-up(large) {
+    h2 {
+      text-align: left;
+    }
+  }
+}
