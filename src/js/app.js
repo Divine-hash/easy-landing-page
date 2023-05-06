@@ -1,7 +1,7 @@
 import '../css/style.scss';
 import '../images/image-restaurant.jpg';
 import data from './data.json';
-import {bindHamburgerEvent} from './navigation.mjs';
+import {bindHamburgerEvent, ShowHeaderOnScrollUp} from './navigation.mjs';
 import {fadeInAnimation, showArticles} from './scrollAnimations.mjs';
 require.context('../images', false, /\.(png|svg|jpg)$/);
 
@@ -9,6 +9,10 @@ const components = [
   {
     func: bindHamburgerEvent,
     selector: '[data-id="nav-id"]'
+  },
+  {
+    func: ShowHeaderOnScrollUp,
+    selector: '[data-id="header"]'
   },
   {
     func: fadeInAnimation,

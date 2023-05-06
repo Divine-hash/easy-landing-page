@@ -4,8 +4,9 @@ header {
   background: $white;
   position: relative;
   z-index: 1;
+}
 
-  @include breakpoint-up(large) {
-    height: 100%;
-  }
+header.scrollup {
+  position: fixed;
+  width: 100%;
 }

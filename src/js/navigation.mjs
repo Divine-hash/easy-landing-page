@@ -11,4 +11,19 @@ function showMenu(event) {
   document.body.style.overflow = isNavActive ? 'hidden' : '';
 }
 
-export {bindHamburgerEvent};
+function ShowHeaderOnScrollUp(header) {
+  let prevY;
+  let currentY;
+
+  const handler = () => {
+    currentY = window.pageYOffset;
+    if (currentY < prevY) {
+      header.classList.add('scrollup');
+    } else {
+      header.classList.remove('scrollup');
+    }
+    prevY = currentY;
+  }
+  document.addEventListener('scroll', handler);
+}
+export {bindHamburgerEvent, ShowHeaderOnScrollUp};
